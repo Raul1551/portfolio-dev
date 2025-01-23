@@ -1,0 +1,36 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCE = [
+  {
+    date: "Julio 2023",
+    title: "Desarrollador Web FullStack",
+    company: "Strata Pavimentos",
+    description:
+      "Desarrollo de módulos para ERP de gestión interna. Lideré el desarrollo de un manual de usuario interactivo para trabajadores de la empresa. Optimización de los tiempos de desarrollo y entrega de producto en un 60%.",
+  },
+  {
+    date: "Marzo 2022",
+    title: "Desarrollador Web FullStack",
+    company: "uDestinations",
+    description:
+      "Responsable de la plataforma de turismo uDestinations, donde diseñe, creé y realicé el mantenimiento tanto de su Web como de su aplicación para automatizar procesos.",
+  },
+  {
+    date: "Enero 2021",
+    title: "Programador Java Junior",
+    company: "Generation Spain",
+    description:
+      "Estudiante en Generation Spain. Desarrollo de aplicaciones web con JavaScript y Node.js, además de proyectos con Java y SpringBoot."
+  },
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

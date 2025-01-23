@@ -1,0 +1,120 @@
+---
+import GitHub from "./icons/GitHub.astro"
+import NextJS from "./icons/NextJS.astro"
+import Tailwind from "./icons/Tailwind.astro"
+import JS from "./icons/JS.astro"
+import CSS from "./icons/CSS.astro"
+import NodeJS from "./icons/NodeJS.astro"
+import Link from "./icons/Link.astro"
+import LinkButton from "./LinkButton.astro"
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  JS: {
+    name: "JS",
+    class: "bg-[#F0DB4F] text-black",
+    icon: JS,
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-[#264DE4] text-white",
+    icon: CSS,
+  },
+  NODE: {
+    name: "NodeJS",
+    class: "bg-[#808080] text-black",
+    icon: NodeJS
+  }
+}
+const PROJECTS = [
+  {
+    title: "SERENAFLIX - A streaming platform based on Netflix",
+    description:
+      "Clon de la plataforma de cine en streaming más famosa de la última década. Creado desde cero con Next.js, React y Tailwind CSS.",
+    link: "https://serenaflix.vercel.app/login/",
+    github: "https://github.com/Raul1551/Serenaflix",
+    image: "/projects/serenaflix.webp",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    title: "Weather App - App de meteorología",
+    description:
+      "App de meteorología rápida. Creada desde cero con JavaScript, CSS y HTML.",
+    link: "https://weatherapp-eight-mu.vercel.app/",
+    github: "https://github.com/Raul1551/weatherapp",
+    image: "/projects/weatherapp.webp",
+    tags: [TAGS.JS, TAGS.CSS],
+  },
+  {
+    title: "uDestinations - App de selección de perfil de viajeros",
+    description:
+      "App de selección automática de perfiles de viajeros mediante IA. Creada desde cero con JQuery, CSS NodeJS.",
+    link: "https://quizviajero-company-production.up.railway.app/",
+    image: "/projects/udestinations.webp",
+    tags: [TAGS.JS, TAGS.CSS, TAGS.NODE],
+  },
+]
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+  <div class="w-full md:w-1/2">
+    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+      <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+    </div>
+  </div>
+
+  <div class="w-full md:w-1/2 md:max-w-lg">
+    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+      {title}
+    </h3>
+    <div class="flex flex-wrap mt-2">
+      <ul class="flex flex-row mb-2 gap-x-2">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+              >
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+      <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+      <footer class="flex items-end justify-start mt-4 gap-x-4">
+          {github && (
+            <LinkButton href={github}>
+              <GitHub class="size-6" />
+              Code
+              
+            </LinkButton>
+          )}
+          {link && (
+            <LinkButton href={link}>
+              <Link class="size-4" />
+              Preview
+            </LinkButton>
+          )}
+        </footer>
+    </div>
+  </div>
+</article>
+    ))
+  }
+</div>
+
+
+
